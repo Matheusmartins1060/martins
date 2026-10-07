@@ -1,0 +1,788 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Special+Elite&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    background: #080a08;
+    font-family: "Special Elite", Georgia, serif;
+    color: #e7dfc8;
+}
+
+/* =====================================================
+   AMBIENTE PRINCIPAL
+===================================================== */
+
+.contador {
+    min-height: 100vh;
+    padding: 55px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    color: #e7dfc8;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(35, 75, 45, 0.35),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #050605 0%,
+            #101510 45%,
+            #060706 100%
+        );
+
+    transition: background 0.4s ease;
+
+    isolation: isolate;
+}
+
+/* =====================================================
+   TEXTURA DE MADEIRA / PAREDE ANTIGA
+===================================================== */
+
+.contador::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.015) 0px,
+            rgba(255, 255, 255, 0.015) 2px,
+            transparent 2px,
+            transparent 9px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.15) 0px,
+            rgba(0, 0, 0, 0.15) 1px,
+            transparent 1px,
+            transparent 6px
+        );
+
+    opacity: 0.8;
+
+    z-index: -3;
+}
+
+/* =====================================================
+   LUZ VERDE E DOURADA
+===================================================== */
+
+.contador::after {
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    border-radius: 50%;
+
+    background: #164d2b;
+
+    filter: blur(180px);
+
+    opacity: 0.18;
+
+    top: -400px;
+    right: -250px;
+
+    z-index: -2;
+
+    animation: luzVerde 8s infinite alternate ease-in-out;
+}
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.contador > * {
+    position: relative;
+    z-index: 3;
+}
+
+/* =====================================================
+   DETALHE DECORATIVO
+===================================================== */
+
+.contador > h1::before {
+    content: "♣";
+
+    position: absolute;
+
+    top: -55px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-family: Georgia, serif;
+
+    font-size: 35px;
+
+    color: #c9a646;
+
+    text-shadow:
+        0 0 8px rgba(201, 166, 70, 0.5);
+
+    opacity: 0.8;
+}
+
+/* =====================================================
+   H1 — CHEFE DA FAMÍLIA
+===================================================== */
+
+h1 {
+    position: relative;
+
+    margin: 15px 0 25px;
+
+    font-family: "Cinzel", Georgia, serif;
+
+    font-size: clamp(42px, 7vw, 78px);
+
+    font-weight: 900;
+
+    line-height: 0.95;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    color: #d9c27a;
+
+    -webkit-text-stroke: 1px #17140b;
+
+    text-shadow:
+        2px 2px 0 #080808,
+        4px 4px 0 #263522,
+        0 0 20px rgba(201, 166, 70, 0.2);
+
+    animation:
+        entradaTitulo 1.2s ease,
+        brilhoDourado 3s infinite alternate;
+}
+
+/* =====================================================
+   H2 — PLACA DE PUB
+===================================================== */
+
+h2 {
+    min-width: 270px;
+
+    padding: 15px 28px;
+
+    margin: 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(45, 52, 40, 0.95),
+            rgba(10, 13, 10, 0.98)
+        );
+
+    border: 2px solid #9b7b2f;
+
+    color: #d9c27a;
+
+    font-family: "Cinzel", Georgia, serif;
+
+    font-size: clamp(19px, 4vw, 28px);
+
+    font-weight: 700;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 0.8),
+        0 0 0 4px #090b09,
+        0 0 25px rgba(20, 65, 35, 0.35);
+
+    border-radius: 3px;
+
+    position: relative;
+
+    animation:
+        entradaHud 1s ease,
+        brilhoHud 3s infinite alternate;
+}
+
+/* Linha decorativa */
+
+h2::before,
+h2::after {
+    content: "◆";
+
+    color: #9b7b2f;
+
+    font-size: 10px;
+
+    margin: 0 12px;
+
+    opacity: 0.8;
+}
+
+/* =====================================================
+   H3
+===================================================== */
+
+h3 {
+    margin: 25px 0 10px;
+
+    color: #b7b09b;
+
+    font-family: "Cinzel", Georgia, serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 2px 4px #000;
+
+    opacity: 0.9;
+}
+
+/* =====================================================
+   INPUTS — PAPEL / FERRO
+===================================================== */
+
+input[type="text"] {
+    width: min(420px, 90vw);
+
+    height: 52px;
+
+    margin: 8px 0;
+
+    padding: 0 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #171a17,
+            #090b09
+        );
+
+    color: #d9c27a;
+
+    border: 1px solid #5f614e;
+
+    border-left: 4px solid #214d31;
+
+    outline: none;
+
+    font-family: "Special Elite", Georgia, serif;
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        inset 0 3px 10px rgba(0, 0, 0, 0.9),
+        0 3px 0 #020302;
+
+    transition:
+        border 0.25s,
+        box-shadow 0.25s,
+        transform 0.25s;
+}
+
+input[type="text"]::placeholder {
+    color: #67685e;
+}
+
+input[type="text"]:focus {
+    border-color: #b29445;
+
+    border-left-color: #2c7141;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        inset 0 3px 10px #000,
+        0 3px 0 #020302,
+        0 0 18px rgba(44, 113, 65, 0.35);
+}
+
+/* =====================================================
+   BOTÃO — CHEFE DA MÁFIA
+===================================================== */
+
+button {
+    position: relative;
+
+    margin: 16px 0;
+
+    min-width: 200px;
+
+    padding: 15px 28px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #315c3b,
+            #142719
+        );
+
+    color: #e2d095;
+
+    border: 1px solid #b39445;
+
+    font-family: "Cinzel", Georgia, serif;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 0 #050605,
+        inset 0 0 12px rgba(0, 0, 0, 0.6);
+
+    transition: 0.2s;
+
+    overflow: hidden;
+}
+
+/* Reflexo metálico */
+
+button::before {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 150%;
+
+    top: -25%;
+    left: -100px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    transform: skewX(-20deg);
+
+    animation: reflexo 4s infinite;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    color: #fff4c9;
+
+    background:
+        linear-gradient(
+            180deg,
+            #3d754d,
+            #1b3522
+        );
+
+    border-color: #d2b55c;
+
+    box-shadow:
+        0 7px 0 #050605,
+        0 0 25px rgba(44, 113, 65, 0.45);
+}
+
+button:active {
+    transform: translateY(2px);
+
+    box-shadow:
+        0 2px 0 #050605;
+}
+
+/* =====================================================
+   COLOR PICKER
+===================================================== */
+
+input[type="color"] {
+    width: 75px;
+    height: 45px;
+
+    padding: 3px;
+
+    background: #111511;
+
+    border: 2px solid #9b7b2f;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 0 #030403,
+        0 0 10px rgba(155, 123, 47, 0.15);
+
+    transition: 0.25s;
+}
+
+input[type="color"]:hover {
+    transform:
+        scale(1.08)
+        rotate(-2deg);
+
+    box-shadow:
+        0 0 20px rgba(201, 166, 70, 0.45);
+}
+
+/* =====================================================
+   CHECKBOX — DISTINTIVO
+===================================================== */
+
+input[type="checkbox"] {
+    appearance: none;
+
+    position: relative;
+
+    width: 68px;
+    height: 32px;
+
+    margin: 15px;
+
+    background: #070907;
+
+    border: 2px solid #555c50;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 3px 7px #000;
+
+    transition: 0.25s;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+
+    position: absolute;
+
+    width: 24px;
+    height: 24px;
+
+    left: 3px;
+    top: 2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d7d1bd,
+            #77776e
+        );
+
+    box-shadow:
+        2px 2px 0 #000;
+
+    transition: 0.3s;
+}
+
+input[type="checkbox"]:checked {
+    border-color: #b39445;
+
+    box-shadow:
+        inset 0 0 10px #14351f,
+        0 0 15px rgba(44, 113, 65, 0.35);
+}
+
+input[type="checkbox"]:checked::before {
+    left: 37px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9c27a,
+            #876d2b
+        );
+
+    box-shadow:
+        0 0 15px rgba(201, 166, 70, 0.45);
+}
+
+/* =====================================================
+   CALCULADORA
+===================================================== */
+
+.section {
+    width: min(600px, 94vw);
+
+    margin-top: 45px;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(28, 35, 28, 0.96),
+            rgba(7, 9, 7, 0.98)
+        );
+
+    border: 1px solid #80672b;
+
+    box-shadow:
+        0 0 0 5px rgba(0, 0, 0, 0.45),
+        inset 0 0 35px rgba(0, 0, 0, 0.8),
+        0 20px 50px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+}
+
+/* Moldura dourada */
+
+.section::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border: 1px solid rgba(179, 148, 69, 0.25);
+
+    pointer-events: none;
+}
+
+/* =====================================================
+   CONTEÚDO DA CALCULADORA
+===================================================== */
+
+.c {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.c h2 {
+    margin-bottom: 25px;
+}
+
+/* =====================================================
+   INPUTS DA CALCULADORA
+===================================================== */
+
+.inputs {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+.inputs input[type="text"] {
+    width: 130px;
+
+    text-align: center;
+
+    color: #e0c978;
+}
+
+.inputs > div {
+    color: #b39445;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 25px;
+
+    font-weight: 700;
+}
+
+/* Resultado */
+
+.inputs > div:last-of-type {
+    min-width: 100px;
+
+    padding: 13px 15px;
+
+    background: #070907;
+
+    border: 1px solid #4e543f;
+
+    color: #d9c27a;
+
+    text-align: center;
+
+    box-shadow:
+        inset 0 0 10px #000;
+}
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes entradaTitulo {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-40px)
+            scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes brilhoDourado {
+    from {
+        text-shadow:
+            2px 2px 0 #080808,
+            4px 4px 0 #263522,
+            0 0 8px rgba(201, 166, 70, 0.1);
+    }
+
+    to {
+        text-shadow:
+            2px 2px 0 #080808,
+            4px 4px 0 #263522,
+            0 0 25px rgba(201, 166, 70, 0.35);
+    }
+}
+
+@keyframes entradaHud {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes brilhoHud {
+    from {
+        box-shadow:
+            inset 0 0 15px rgba(0, 0, 0, 0.8),
+            0 0 0 4px #090b09,
+            0 0 10px rgba(20, 65, 35, 0.15);
+    }
+
+    to {
+        box-shadow:
+            inset 0 0 15px rgba(0, 0, 0, 0.8),
+            0 0 0 4px #090b09,
+            0 0 25px rgba(20, 65, 35, 0.4);
+    }
+}
+
+@keyframes reflexo {
+    0% {
+        left: -100px;
+    }
+
+    30% {
+        left: 130%;
+    }
+
+    100% {
+        left: 130%;
+    }
+}
+
+@keyframes luzVerde {
+    from {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate(-180px, 150px)
+            scale(1.35);
+    }
+}
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .contador {
+        padding: 35px 15px;
+    }
+
+    h1 {
+        font-size: 42px;
+
+        letter-spacing: 3px;
+    }
+
+    h2 {
+        min-width: 230px;
+
+        font-size: 18px;
+    }
+
+    input[type="text"] {
+        width: 90vw;
+    }
+
+    .section {
+        padding: 25px 15px;
+    }
+
+    .inputs {
+        flex-direction: column;
+    }
+
+    .inputs input[type="text"] {
+        width: 200px;
+    }
+
+    .inputs > div {
+        margin: 2px;
+    }
+}
